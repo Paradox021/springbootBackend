@@ -44,7 +44,7 @@ public class Ejercicio {
 
     
     @PostMapping("/saveProductOnDisk")
-    public String saveProduct(@RequestParam Map<String,String> body){
+    public String saveProductOnDisk(@RequestParam Map<String,String> body){
         String ArticleValue = body.get("article");
         String priceValue = body.get("price");
         
@@ -56,7 +56,6 @@ public class Ejercicio {
         if(Integer.valueOf(priceValue) < 0){
             return "Precio negativo";
         }
-        
         try {
             Utils.save("datos.txt", ArticleValue+","+priceValue+"\n");
         } catch (IOException e) {
