@@ -20,7 +20,7 @@ public class Utils {
             pw = new PrintWriter(fw);
             pw.print(text);
         } finally{
-            if(pw!=null)pw.close();
+            if(pw!=null) pw.close();
         }
     }
 }
