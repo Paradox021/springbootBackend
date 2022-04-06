@@ -3,8 +3,12 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Map;
 
+import com.example.demo.models.Person;
+import com.example.demo.services.RickAndMortyService;
 import com.example.demo.utils.Utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Ejercicio {
+
+    @Autowired
+    RickAndMortyService rickAndMortyService;
+
     
     // http://localhost:8080/
     @GetMapping("/")
@@ -65,5 +73,18 @@ public class Ejercicio {
        // Devolver msg cliente
        return "Producto guardado correctamente";
        
-    }   
+    }  
+
+    @DeleteMapping("/removeFile")
+    public String removeFile(){
+        boolean result = Utils.remove("datos.txt");
+        return result?"Borrado correctamente":"No se puede borrar";
+    }
+
+    @GetMapping("/rickandmorty")
+    public String getRickAndMorty(){
+        Person c = rickAndMortyService.getCharacterFromAPI();
+        return MessageFormat.format("<img src='{0}'/>", c.image);
+    }
+
 }

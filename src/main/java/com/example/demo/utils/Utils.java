@@ -1,5 +1,6 @@
 package com.example.demo.utils;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,5 +23,10 @@ public class Utils {
         } finally{
             if(pw!=null) pw.close();
         }
+    }
+    public static boolean remove(){
+        File file = new File("datos.txt");
+        boolean result = file.delete();    
+        return result;
     }
 }
