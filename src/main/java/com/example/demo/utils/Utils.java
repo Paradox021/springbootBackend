@@ -24,8 +24,8 @@ public class Utils {
             if(pw!=null) pw.close();
         }
     }
-    public static boolean remove(){
-        File file = new File("datos.txt");
+    public static boolean remove(String name){
+        File file = new File(name);
         boolean result = file.delete();    
         return result;
     }
