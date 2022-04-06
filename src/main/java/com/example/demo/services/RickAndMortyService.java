@@ -1,23 +1,20 @@
 package com.example.demo.services;
 
+import com.example.demo.models.Person;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-class Character{
-    public String name;
-    public String image;
-}
 
 @Service
 public class RickAndMortyService {
     @Autowired
     RestTemplate restTemplate;
 
-    public Character getCharacterFromAPI(){
+    public Person getCharacterFromAPI(){
         long randomNumber = Math.round(Math.random()*826)+1;
         String url = "https://rickandmortyapi.com/api/character/"+randomNumber;
-        Character character = restTemplate.getForObject(url, Character.class);
+        Person character = restTemplate.getForObject(url, Person.class);
         return character;
     }
 }

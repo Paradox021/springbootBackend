@@ -1,6 +1,6 @@
 package com.example.demo.models;
 
-public class Character{
+public class Person{
     public String name;
     public String image;
 }

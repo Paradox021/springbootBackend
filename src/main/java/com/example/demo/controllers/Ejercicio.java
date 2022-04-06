@@ -81,6 +81,7 @@ public class Ejercicio {
         return result?"Borrado correctamente":"No se puede borrar";
     }
 
+    // http://localhost:8080/rickandmorty
     @GetMapping("/rickandmorty")
     public String getRickAndMorty(){
         Person c = rickAndMortyService.getCharacterFromAPI();
