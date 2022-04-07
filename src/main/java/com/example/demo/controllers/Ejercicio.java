@@ -89,12 +89,21 @@ public class Ejercicio {
         return "<img src='"+c.image+"'/>";
     }
 
-    @GetMapping("/rickandmorty/list")
-    public String getRickAndMortyList(){
+    @GetMapping("/rickandmorty/all")
+    public String getRickAndMortyAll(){
         ArrayList<Person> personajes = rickAndMortyService.getAllCharacterFromAPI();
         String result="";
         for (Person c: personajes) {
             result += "<img src='"+c.image+"'/>\n";
+        }
+        return result;
+    }
+    @GetMapping("/rickandmorty/list")
+    public String getRickAndMortyList(){
+        ArrayList<Person> persons = rickAndMortyService.getCharactersFromAPI();
+        String result="";
+        for (Person c: persons) {
+            result += "<img src='"+c.image+"'/>";
         }
         return result;
     }
