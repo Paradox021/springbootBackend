@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 import java.io.IOException;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Map;
 
 import com.example.demo.models.Person;
@@ -81,11 +82,20 @@ public class Ejercicio {
         return result?"Borrado correctamente":"No se puede borrar";
     }
 
-    // http://localhost:8080/rickandmorty
-    @GetMapping("/rickandmorty")
+    // http://localhost:8080/rickandmorty/random
+    @GetMapping("/rickandmorty/random")
     public String getRickAndMorty(){
         Person c = rickAndMortyService.getCharacterFromAPI();
         return "<img src='"+c.image+"'/>";
     }
 
+    @GetMapping("/rickandmorty/list")
+    public String getRickAndMortyList(){
+        ArrayList<Person> personajes = rickAndMortyService.getAllCharacterFromAPI();
+        String result="";
+        for (Person c: personajes) {
+            result += "<img src='"+c.image+"'/>\n";
+        }
+        return result;
+    }
 }
