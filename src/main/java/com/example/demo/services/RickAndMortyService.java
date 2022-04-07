@@ -20,15 +20,6 @@ public class RickAndMortyService {
         Person character = restTemplate.getForObject(url, Person.class);
         return character;
     }
-
-    public ArrayList<Person> getAllCharacterFromAPI(){
-        ArrayList<Person> personajes = new ArrayList<Person>();
-        for(int i=1; i<827; i++ ){
-            String url = "https://rickandmortyapi.com/api/character/"+i;
-            personajes.add(restTemplate.getForObject(url, Person.class));
-        }
-        return personajes;
-    }
     public ArrayList<Person> getCharactersFromAPI(){
         String url = "https://rickandmortyapi.com/api/character/";
         Persons persons = restTemplate.getForObject(url, Persons.class);
