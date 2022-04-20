@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import com.example.demo.models.Person;
+import com.example.demo.services.JokeService;
 import com.example.demo.services.RickAndMortyService;
 import com.example.demo.utils.Utils;
 
@@ -22,6 +23,8 @@ public class Ejercicio {
     @Autowired
     RickAndMortyService rickAndMortyService;
 
+    @Autowired
+    JokeService jokeService;
     
     // http://localhost:8080/
     @GetMapping("/")
@@ -98,4 +101,12 @@ public class Ejercicio {
         }
         return result;
     }
+
+    // http://localhost:8080/chiste?text=texto
+    @GetMapping("/chiste")
+    public String addJoke(@RequestParam String text){
+        //insert into joke(text) values ("texto")
+        return text;
+    }
+
 }
