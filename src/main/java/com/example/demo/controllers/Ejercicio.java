@@ -2,7 +2,6 @@ package com.example.demo.controllers;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
 
 import com.example.demo.models.Joke;
