@@ -126,4 +126,9 @@ public class Ejercicio {
         return "Chiste creado correctamente";
     }
     
+    // http://localhost:8080/contar
+    @GetMapping("/contar/{texto}")
+    public String contar(@PathVariable String texto){
+        return texto;
+    }
 }
