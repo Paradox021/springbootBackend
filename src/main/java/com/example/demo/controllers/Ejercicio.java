@@ -104,14 +104,19 @@ public class Ejercicio {
         return result;
     }
 
-
+    // http://localhost:8080/listarChiste
     @GetMapping("/listarChistes")
     public String jokeList(){
         ArrayList<Joke> jokes = jokeService.getAllJokes();
-        return Arrays.toString(jokes.toArray());
+        String listado = "";
+        for(Joke joke : jokes){
+            listado += joke.getText();
+            listado += "<br/>";
+        }
+        return listado;
     }
 
-    // http://localhost:8080/chiste?text=texto
+    // http://localhost:8080/insertarChiste
     @PostMapping("/insertarChiste")
     public String addJoke(@RequestParam Map<String,String> body){
         //insert into joke(text) values ("texto")
