@@ -2,8 +2,10 @@ package com.example.demo.controllers;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
+import com.example.demo.models.Joke;
 import com.example.demo.models.Person;
 import com.example.demo.services.JokeService;
 import com.example.demo.services.RickAndMortyService;
@@ -102,11 +104,22 @@ public class Ejercicio {
         return result;
     }
 
+
+    @GetMapping("/listarChistes")
+    public String jokeList(){
+        ArrayList<Joke> jokes = jokeService.getAllJokes();
+        return Arrays.toString(jokes.toArray());
+    }
+
     // http://localhost:8080/chiste?text=texto
-    @GetMapping("/chiste")
-    public String addJoke(@RequestParam String text){
+    @PostMapping("/insertarChiste")
+    public String addJoke(@RequestParam Map<String,String> body){
         //insert into joke(text) values ("texto")
-        return text;
+        String jokeText = body.get("text");
+        Joke joke = new Joke();
+        joke.setText(jokeText);
+        jokeService.saveJoke(joke);
+        return "Chiste creado correctamente";
     }
     
 }

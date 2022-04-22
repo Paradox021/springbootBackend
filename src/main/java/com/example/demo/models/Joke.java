@@ -17,6 +17,10 @@ public class Joke {
 
     @Column(nullable = false)
     String text;
+
+    public void setText(String text){
+        this.text = text;
+    }
 }
 
 // CREATE TABLE Joke (id long PRIMARY KEY AUTO_INCREMETENT, text VARCHAR(200) NOT NULL)
