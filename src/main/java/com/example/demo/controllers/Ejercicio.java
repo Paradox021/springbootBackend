@@ -126,9 +126,11 @@ public class Ejercicio {
         return "Chiste creado correctamente";
     }
     
-    // http://localhost:8080/contar
+    // http://localhost:8080/contar/
     @GetMapping("/contar/{texto}")
     public String contar(@PathVariable String texto){
+        int[] numLetras = Utils.contar(texto); 
+        texto = MessageFormat.format("{0} tiene {1} vocales y {2} consonantes" , texto, numLetras);
         return texto;
     }
 }
