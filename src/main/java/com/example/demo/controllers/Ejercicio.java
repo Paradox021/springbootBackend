@@ -130,7 +130,10 @@ public class Ejercicio {
     @GetMapping("/contar/{texto}")
     public String contar(@PathVariable String texto){
         int[] numLetras = Utils.contar(texto); 
-        texto = MessageFormat.format("{0} tiene {1} vocales y {2} consonantes" , texto, numLetras);
+        texto = MessageFormat.format("{0} tiene {1} vocales y {2} consonantes" , texto, numLetras[0], numLetras[1]);
         return texto;
     }
+    
+
+
 }
