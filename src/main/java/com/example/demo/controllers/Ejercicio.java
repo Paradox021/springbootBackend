@@ -6,7 +6,9 @@ import java.util.Map;
 
 import com.example.demo.models.Joke;
 import com.example.demo.models.Person;
+import com.example.demo.models.Pet;
 import com.example.demo.services.JokeService;
+import com.example.demo.services.PetService;
 import com.example.demo.services.RickAndMortyService;
 import com.example.demo.utils.Utils;
 
@@ -26,6 +28,9 @@ public class Ejercicio {
 
     @Autowired
     JokeService jokeService;
+
+    @Autowired
+    PetService petService;
     
     // http://localhost:8080/
     @GetMapping("/")
@@ -101,7 +106,7 @@ public class Ejercicio {
             result += "<img src='"+c.image+"'/>";
         }
         return result;
-    }
+    }   
 
     // http://localhost:8080/listarChiste
     @GetMapping("/listarChistes")
@@ -135,5 +140,33 @@ public class Ejercicio {
     }
     
 
+    // http://localhost:8080/listarChiste
+    @GetMapping("/listar")
+    public String petList(){
+        ArrayList<Pet> pets = petService.getAllPets();
+        String listado = "";
+        for(Pet pet : pets){
+            listado += pet.getName();
+            listado += "<br/>";
+        }
+        return listado;
+    }
+
+    // http://localhost:8080/insertarChiste
+    @PostMapping("/guarda")
+    public String addPet(@RequestParam String nombre){
+        //insert into joke(text) values ("texto")
+        Pet pet = new Pet();
+        pet.setName(nombre);
+        petService.savePet(pet);
+        return "Mascota registrada correctamente";
+    }
+    
+    // http://localhost:8080/????
+    @GetMapping("/{texto}")
+    public String frase(@PathVariable String texto){
+        texto = Utils.transformaTexto(texto);
+        return texto;
+    }
 
 }

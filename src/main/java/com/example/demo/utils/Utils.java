@@ -42,4 +42,8 @@ public class Utils {
         }
         return num;
     }
+
+    public static String transformaTexto(String texto){
+        return texto;    
+    }
 }
