@@ -131,7 +131,7 @@ public class Ejercicio {
         return "Chiste creado correctamente";
     }
     
-    // http://localhost:8080/contar/
+    // http://localhost:8080/contar/????
     @GetMapping("/contar/{texto}")
     public String contar(@PathVariable String texto){
         int[] numLetras = Utils.contar(texto); 
@@ -140,7 +140,7 @@ public class Ejercicio {
     }
     
 
-    // http://localhost:8080/listarChiste
+    // http://localhost:8080/listar
     @GetMapping("/listar")
     public String petList(){
         ArrayList<Pet> pets = petService.getAllPets();
@@ -152,7 +152,7 @@ public class Ejercicio {
         return listado;
     }
 
-    // http://localhost:8080/insertarChiste
+    // http://localhost:8080/guarda
     @PostMapping("/guarda")
     public String addPet(@RequestParam String nombre){
         //insert into joke(text) values ("texto")

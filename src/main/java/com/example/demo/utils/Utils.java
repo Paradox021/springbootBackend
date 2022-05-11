@@ -44,6 +44,10 @@ public class Utils {
     }
 
     public static String transformaTexto(String texto){
-        return texto;    
+        int longitudTexto = texto.length();
+        for(int i=0; i<longitudTexto; i++){
+            if(Math.random()<0.5) Character.toUpperCase(texto.charAt(i));           
+        }
+        return texto; 
     }
 }
