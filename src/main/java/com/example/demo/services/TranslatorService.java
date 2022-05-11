@@ -1,6 +1,5 @@
 package com.example.demo.services;
 
-import com.example.demo.models.ResponseData;
 import com.example.demo.models.TranslatedText;
 
 import org.springframework.beans.factory.annotation.Autowired;
