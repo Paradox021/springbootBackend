@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.models.ApiText;
 import com.example.demo.models.TranslatedText;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class TranslatorService {
 
     public TranslatedText getTranslationFromAPI(String cad){
         String url = "https://api.mymemory.translated.net/get?q="+cad+"&langpair=es|en";
-        TranslatedText text = restTemplate.getForObject(url, TranslatedText.class);
+        TranslatedText text = restTemplate.getForObject(url, ApiText.class).text;
         return text;
     }
 }
