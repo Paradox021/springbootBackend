@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.hibernate.type.CharacterType;
+
 public class Utils {
     public static boolean isPalindrome(String value){
         value = value.replace(" ", "");
@@ -44,9 +46,9 @@ public class Utils {
     }
 
     public static String transformaTexto(String texto){
-        int longitudTexto = texto.length();
-        for(int i=0; i<longitudTexto; i++){
-            if(Math.random()<0.5) Character.toUpperCase(texto.charAt(i));           
+        char[] cadena = texto.toCharArray();
+        for(int i=0; i<cadena.length; i++){
+            if(Math.random()<0.5) cadena[i] = Character.toUpperCase(cadena[i]);           
         }
         return texto; 
     }
