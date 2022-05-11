@@ -1,6 +1,6 @@
 package com.example.demo.models;
 
 public class TranslatedText {
-    public String text;
-    public boolean match;
+    public String translatedText;
+    public double match;
 }
