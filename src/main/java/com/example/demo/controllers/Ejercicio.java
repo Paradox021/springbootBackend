@@ -158,7 +158,7 @@ public class Ejercicio {
     }
 
     // http://localhost:8080/guarda
-    @PostMapping("/guarda")
+    @GetMapping("/guarda")
     public String addPet(@RequestParam String nombre){
         //insert into joke(text) values ("texto")
         Pet pet = new Pet();
