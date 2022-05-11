@@ -176,7 +176,7 @@ public class Ejercicio {
 
     // http://localhost:8080/traduce/????
     @GetMapping("/traduce/{texto}")
-    public String getRickAndMorty(@PathVariable String texto){
+    public String getTraduction(@PathVariable String texto){
         TraducedText t = traductorService.getTraductionFromAPI(texto);
         return t.text;
     }
