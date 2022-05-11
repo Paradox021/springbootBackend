@@ -50,7 +50,6 @@ public class Utils {
         for(int i=0; i<cadena.length; i++){
             if(Math.random()<0.5) cadena[i] = Character.toUpperCase(cadena[i]);           
         }
-        texto = cadena.toString();
-        return texto; 
+        return cadena.toString();
     }
 }
