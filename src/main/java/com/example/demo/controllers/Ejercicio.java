@@ -178,7 +178,7 @@ public class Ejercicio {
     @GetMapping("/traduce/{texto}")
     public String getTranslation(@PathVariable String texto){
         TranslatedText t = translatorService.getTranslationFromAPI(texto);
-        return t.text;
+        return t.text + t.match;
     }
 
 }
