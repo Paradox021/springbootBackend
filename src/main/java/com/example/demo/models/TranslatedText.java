@@ -1,6 +1,6 @@
 package com.example.demo.models;
 
-public class TraducedText {
+public class TranslatedText {
     public String text;
     public float match;
 }

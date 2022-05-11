@@ -7,11 +7,11 @@ import java.util.Map;
 import com.example.demo.models.Joke;
 import com.example.demo.models.Person;
 import com.example.demo.models.Pet;
-import com.example.demo.models.TraducedText;
+import com.example.demo.models.TranslatedText;
 import com.example.demo.services.JokeService;
 import com.example.demo.services.PetService;
 import com.example.demo.services.RickAndMortyService;
-import com.example.demo.services.TraductorService;
+import com.example.demo.services.TranslatorService;
 import com.example.demo.utils.Utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class Ejercicio {
     PetService petService;
 
     @Autowired
-    TraductorService traductorService;
+    TranslatorService translatorService;
     
     // http://localhost:8080/
     @GetMapping("/")
@@ -176,8 +176,8 @@ public class Ejercicio {
 
     // http://localhost:8080/traduce/????
     @GetMapping("/traduce/{texto}")
-    public String getTraduction(@PathVariable String texto){
-        TraducedText t = traductorService.getTraductionFromAPI(texto);
+    public String getTranslation(@PathVariable String texto){
+        TranslatedText t = translatorService.getTranslationFromAPI(texto);
         return t.text;
     }
 
